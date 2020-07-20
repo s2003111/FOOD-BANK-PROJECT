@@ -1,0 +1,108 @@
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ food Bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div>
+            <h1>Orders need to Allocate with Inventory</h1>
+            {% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					{{ message }}
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+            <form id="form1" name="form1" method="POST"  action="/donations_match" onSubmit="return validateForm()">
+			</p>
+			<table bgcolor="#96CDCD">
+  			<tr>
+    				<td id="tag">Order want to Update:</td>
+   				<td id="field">
+                    <select name="id">
+
+                        {% for row in data %}
+
+                    <option value="{{ row[0] }}" >{{ row[0]}}</option>
+
+                        {% endfor %}
+
+                    </select>
+                </td>
+                <td id="field">
+                </td>
+                <td id="tag"><input type="submit" name="submit" id="submit" value="submit"></td>
+
+  			</tr>
+                          <table id="dataphone" class="table table-bordered table-striped" border="1" >
+                <thead align="center">
+                  <tr>
+                      <th>Order Id</th>
+                    <th>Category_Name</th>
+                    <th>Weight</th>
+                      <th>Required Day</th>
+                      <th>Other details</th>
+                      <th>Transfer day</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% if data|length == 0 %}
+                  <tr>
+                    <td>No Data</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                    {% else %}
+                  <tr>
+                      {% for row in data %}
+                      <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                      <td>{{ row[5] }}</td>
+                      <td>{{ row[6] }}</td>
+                  </tr>
+                      {% endfor %}
+                    {% endif%}
+                </tbody>
+              </table>
+
+
+            <div align="center">
+                <div id="download"><a href="/admin_inventory">Back to previous page</a></div>
+                <div id="download"><a href="/logout" >Sign Out</a></div>
+            </div>
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

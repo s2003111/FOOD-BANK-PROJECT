@@ -1,0 +1,92 @@
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ food Bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div>
+            <h1>My Orders</h1>
+            {% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					<p id="Answer">	{{ message }}</p>
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+            <a href="/add_order" align="center">insert new orders</a>
+                          <table id="dataphone" class="table table-bordered table-striped">
+                <thead align="center">
+                  <tr>
+                      <th>Required Day</th>
+                    <th>Created Day</th>
+                    <th>Transfer Day</th>
+                      <th>Category Name</th>
+                      <th>Require Weight(kg)</th>
+                      <th>Other Details</th>
+                      <th>Allocated Product</th>
+                      <th>Product Expired Date</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% if data|length == 0 %}
+                  <tr>
+                    <td>No Data</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                    {% else %}
+                  <tr>
+                      {% for row in data %}
+                      <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                      <td>{{ row[4] }}</td>
+                      <td>{{ row[5] }}</td>
+                      <td>{{ row[6] }}</td>
+                      <td>{{ row[7] }}</td>
+                  </tr>
+                      {% endfor %}
+                    {% endif%}
+                </tbody>
+              </table>
+
+
+			<div id="download"><a href="/recipient_main">Back to previous page</a></div>
+			<div id="download"><a href="/logout_recipient">Sign out</a></div>
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

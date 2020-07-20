@@ -1,0 +1,275 @@
+*{
+		margin:0px auto;
+		padding:0px;
+		box-sizing:border-box;
+	}
+
+		
+		.wrapper {
+		max-width:1500px;}
+
+		#banner{
+		width:100%;
+		background-image:url("bluebackground2.jpg");
+		height:300px;
+		margin:0px;
+		}
+		
+		#companyName{
+		font-size:120px;
+		text-align:center;
+		color:white;
+		}
+		.update{
+		background:#96CDCD;
+		position:absolute;
+		margin:10px auto;
+		left:300px;
+		top:100px;
+		padding:10px;
+		float:left;
+		}
+
+		#main {margin-left: 4px;}
+		#menulist {margin:0;padding:0;}
+		.menuitem {
+			background:#96CDCD;
+			border:1px solid #d4d4d4;
+			border-radius:4px;
+			list-style-type:none;
+			margin:4px;
+			padding:2px;
+			line-height:25px;
+			height:50px;
+		}
+		li:hover{background:#bbbbbb;}
+		h1 {font-size: 50px;}		
+
+		/*#course_items{
+			max-width:400px;
+			margin:0 auto;
+		}
+		#course_items img{			
+			width:100%;
+		}*/
+		
+		
+		#product_items{
+			max-width:900px;
+			margin:0 auto;
+			
+			position:relative;
+		}
+		#product_items div img{			
+			width:100%;
+		}
+		#product_items div{
+			max-width:350px;
+			display:inline block;
+			border:5px solid #e6ffcc;	
+			background: #e6ffcc;
+	
+		
+		}
+
+		
+
+		#ContactUs{
+			width:300px;
+			position:absolute;
+			margin-top:10px;
+			background:#96CDCD;
+			padding:10px;
+			border-radius: 16px;
+		}
+		
+		
+
+		#FAQ{
+			
+			position:relative;
+			margin:10px auto;
+			left:0px;
+			top:0px;
+			padding:10px;
+		}
+		#Question{
+		    text-align:center;
+		    background:#96CDCD;
+			min-width:300px;
+			min-height:50px;
+			margin:5px auto;
+			padding:5px;
+			font-size:30px;
+			border-radius:5px
+			
+
+		}
+		#Answer{
+		    font-size:20px;
+			background:white;
+			font-style:initial;
+			min-width:880px;
+			min-height:30px;
+			margin:5px auto;
+			padding:5px;
+		}
+
+
+		
+		#tag{
+		width:150px;
+		min-height:100px;
+		
+
+		}
+		#field{
+		width:150px;
+		min-height:100px;
+		
+
+		}
+            #Membership{
+            min-height:150px;
+			padding:20px;
+			background:#96CDCD;
+			border-radius: 16px;}
+		
+		#benefit{
+				
+				list-style:none;
+				list-style-image:url(images/yes.png);
+				margin:0;
+				padding-left:40px;
+				line-height:150%;
+			}
+		#ProductSpec{
+				float:left;
+				margin:4px;
+				max-width:880px;
+				min-height:300px;
+
+		}
+		#ProductSpecsub{
+				float:left;
+				margin:4px;
+				width:420px;
+				height:300px;
+
+		}
+		
+		#ProductSpecsub1{
+				margin:4px;
+				float:left;
+
+		}
+		#ProductSpecsub2{
+				width:200px;
+				
+
+		}
+		#ProductSpecsub3{
+				margin:4px;
+				width:200px;
+				text-align:right;
+				
+
+		}
+		a{
+			text-decoration:none;
+
+		}
+
+		#download{
+			background-color:#ffff99;
+			width:200px;
+			height:30px;
+			text-align:center;
+			clear:both;
+				
+		}
+
+
+		
+		
+
+		footer{
+			clear:both;
+		}
+		footer div{
+				max-width:1500px;
+				color:white;
+				background:#000;
+				text-align:center;
+				padding:25px;
+		}
+		#dataphone{
+            border: 1px solid black;
+            background-color:#96CDCD;
+            align:left
+         }
+         #dataphone th{
+         border: 1px solid black}
+         #dataphone td{
+         border: 1px solid black}
+			@media screen and (min-width: 300px) {
+			#leftsidebar {width:200px;float:left;}
+			#main {margin-left:216px;}
+			#dataphone{border: 1px solid black;}
+
+
+
+
+			.update{
+		    text-align:center
+		    }
+			#course_items{
+				max-width:800px;
+				margin:0 auto;
+			}
+			#course_items img{
+				float:left;
+				width:200px;
+			}
+			#Productimg{
+			margin-left:4px;
+			float:left;
+			width:400px;
+			}
+			#Productdescription{
+			margin-left:4px;
+			margin-top:4px;
+			float:left;
+			width:460px;
+			
+			}
+			#descriptionword{
+			font-style:italic;
+			}	
+			#Productimg img{
+			width:400px;
+			}
+			#Productbenefit{
+			margin-left:4px;
+			margin-top:4px;
+			float:left;
+			width:460px;	
+			height:320px;
+			}
+
+			#Productimg2{
+			margin-left:4px;
+			float:left;
+			width:400px;
+			}
+			
+			#Productimg img{
+			width:400px;
+			}
+			
+					
+		}			
+		
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ Food Bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+			
+		</div>
+
+		<div id="main">
+		<h1>Contact Us</h1>
+		<hr>
+			
+			<div id="ContactUs">
+				
+				<p>Address:Room 123, 12/F, ABC Tower, 33 ABC Road, Tsuen Wan, Hong Kong</p>
+				<p>Tel: +852 21234567</p>
+				<p>Fax: +852 31234567</p>
+				<p>Email:abc@gmail.com</p>
+
+			</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

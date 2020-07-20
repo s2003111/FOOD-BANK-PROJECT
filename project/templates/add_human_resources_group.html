@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ Food Bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div id="main">
+            <h2> Is the human resources a employee or volunteer?</h2>
+            {% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					{{ message }}
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+			<a href="/add_human_resources_employee/"><p id="Question">Employee</p></a>
+			<a href="/add_human_resources_volunteer"><p id="Question">Volunteer</p></a>
+			<div id="download"><a href="/add_human_resources">Back to previous page</a></div>
+            <div id="download"><a href="/logout">Sign Out</a></div>
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

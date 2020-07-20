@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+	<script>
+		function validateForm() {
+		var name = document.forms["form1"]["name"].value;
+		var email = document.forms["form1"]["email"].value;
+		var gender = document.forms["form1"]["RadioGroup1"].value;
+		var phone= document.forms["form1"]["phone"].value;
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+ 		 if(name==''){
+			alert('Please enter your name.');
+			return false;
+		}else if(gender==''){
+			alert('Please enter your gender.');
+			return false;
+		}else if(email==''){
+			alert('Please enter your email.');
+			return false;
+		}else if(phone==''){
+			alert('Please enter your phone.');
+			return false;
+		}else if (reg.test(email) == false) {
+           		 alert('Invalid Email Address');
+            		return false;
+        	}
+
+
+
+
+	}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ Food bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div id="main">
+			<h1>Insert New Donations</h1>
+			<hr>
+			{% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					{{ message }}
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+
+			<form id="form1" name="form1" method="POST" action="/adddonation" onSubmit="return validateForm()">
+			</p>
+			<table id="Membership">
+  			<tr>
+    				<td id="tag">Delivered Date</td>
+   				<td id="field"><input type="date" name="deliver" id="deliver", placeholder="name"></td>
+  			</tr>
+			<tr>
+				<td id="tag">Product Name</td>
+   				<td id="field">
+                    <select name="description">
+
+                        {% for row in data %}
+
+                    <option value="{{ row[0] }}" >{{ row[0]}}</option>
+
+                        {% endfor %}
+
+                    </select>
+                </td>
+			</tr>
+				<tr>
+				<td id="tag">Weight:</td>
+   				<td id="field"> <input type="number" name="weight" id="weight", placeholder="weight"></td>
+			</tr>
+                <tr>
+    				<td id="tag">Expired Date</td>
+   				<td id="field"><input type="date" name="expire" id="expire", placeholder="name"></td>
+  			</tr>
+                <tr>
+                    <td id="tag">Delivery Mode</td>
+                <td id="field">
+                    <select name="mode">
+
+                        <option value="Donor_Delivered" >Donor_Delivered</option>
+                        <option value="FoodBank_Delivered" >FoodBank_Delivered</option>
+                        <option value="Third_Party_Delivered" >Third_Party_Delivered</option>
+
+                    </select>
+                </td>
+                </tr>
+				<tr>
+				<td id="tag"><input type="submit" name="submit" id="submit" value="submit"></td>
+   				<td id="field"> </td>
+			</tr>
+
+
+
+			</table>
+			</form>
+			 <div id="download"><a href="/donor_donations">Back to previous page</a></div>
+        <div id="download"><a href="/logout_donor">Sign Out</a></div>
+
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

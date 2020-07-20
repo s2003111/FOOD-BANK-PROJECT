@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+	<script>
+		function validateForm() {
+		var name = document.forms["form1"]["name"].value;
+		var email = document.forms["form1"]["email"].value;
+		var gender = document.forms["form1"]["RadioGroup1"].value;
+		var phone= document.forms["form1"]["phone"].value;
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+ 		 if(name==''){
+			alert('Please enter your name.');
+			return false;
+		}else if(gender==''){
+			alert('Please enter your gender.');
+			return false;
+		}else if(email==''){
+			alert('Please enter your email.');
+			return false;
+		}else if(phone==''){
+			alert('Please enter your phone.');
+			return false;
+		}else if (reg.test(email) == false) {
+           		 alert('Invalid Email Address');
+            		return false;
+        	}
+
+
+
+
+	}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ Food bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div id="main">
+			<h1>Insert New Volunteer</h1>
+			<hr>
+			{% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					{{ message }}
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+
+			<form id="form1" name="form1" method="POST"  action="/addvolunteer" onSubmit="return validateForm()">
+			</p>
+			<table id="Membership">
+  			<tr>
+    				<td id="tag">Id</td>
+   				<td id="field">
+                    <select name="id">
+
+                        {% for row in data %}
+
+                    <option value="{{ row[0] }}" >{{ row[0:2]}}</option>
+
+                        {% endfor %}
+
+                    </select>
+                </td>
+  			</tr>
+			<tr>
+				<td id="tag">No of serving hours</td>
+   				<td id="field"> <input name="hour" type="number" class="form-control" placeholder="hour" autocomplete="off" required>
+                </td>
+			</tr>
+				<tr>
+				<td id="tag">Availability</td>
+   				<td id="field"> <input name="availability" type="text" class="form-control" placeholder="availability" autocomplete="off" required>
+                </td>
+			</tr>
+				<tr>
+				<td id="tag">Team</td>
+   				<td id="field">
+					<select name="team">
+						<option value="Delivery Team" >Delivery Team</option>
+						<option value="Warehouse Team" >Warehouse Team</option>
+						<option value="Food Parcel Team" >Food Parcel Team</option>
+						<option value="Others" >Others</option>
+					</select>
+                </td>
+			</tr>
+				<tr>
+				<td id="tag">Mobile Phone</td>
+   				<td id="field"> <input name="mobile" type="text" class="form-control" placeholder="mobile" autocomplete="off" required>
+                </td>
+			</tr>
+				<tr>
+				<td id="tag"><input type="submit" name="save" id="submit" value="submit"></td>
+   				<td id="field"> </td>
+			</tr>
+
+
+
+			</table>
+			</form>
+			<div id="download"><a href="/add_human_resources_group/">Back to previous page</a></div>
+            <div id="download"><a href="/logout">Sign Out</a></div>
+
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

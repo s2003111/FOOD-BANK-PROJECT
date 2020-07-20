@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+	<script>
+		function validateForm() {
+		var name = document.forms["form1"]["name"].value;
+		var email = document.forms["form1"]["email"].value;
+		var gender = document.forms["form1"]["RadioGroup1"].value;
+		var phone= document.forms["form1"]["phone"].value;
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+ 		 if(name==''){
+			alert('Please enter your name.');
+			return false;
+		}else if(gender==''){
+			alert('Please enter your gender.');
+			return false;
+		}else if(email==''){
+			alert('Please enter your email.');
+			return false;
+		}else if(phone==''){
+			alert('Please enter your phone.');
+			return false;
+		}else if (reg.test(email) == false) {
+           		 alert('Invalid Email Address');
+            		return false;
+        	}
+
+
+
+
+	}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ Food bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div id="main">
+			<h1>My Details</h1>
+			<hr>
+			{% with messages = get_flashed_messages() %}
+  				{% if messages %}
+    				{% for message in messages %}
+      					<p id="Answer">	{{ message }}</p>
+    				{% endfor %}
+  				{% endif %}
+			{% endwith %}
+
+			<form id="form1" name="form1" method="POST" action="/update_recipient" onSubmit="return validateForm()">
+			</p>
+			<table id="Membership">
+                <tr>
+				<td id="tag">Id</td>
+   				<td id="field">{{ data[0][0] }}
+                </td>
+			</tr>
+  			<tr>
+    				<td id="tag">Name:</td>
+   				<td id="field">{{ data[0][1] }}</td>
+  			</tr>
+                <tr>
+				<td id="tag">Street number:</td>
+   				<td id="field"> <input type="number" name="snumber" id="snumber", placeholder="street number", value="{{ data[0][2]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Street Name:</td>
+   				<td id="field"> <input type="text" name="sname" id="sname", placeholder="street name", value="{{ data[0][3]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Postcode:</td>
+   				<td id="field"> <input type="text" name="postcode" id="postcode", placeholder="postcode", value="{{ data[0][4]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Subrub:</td>
+   				<td id="field"> <input type="text" name="subrub" id="subrub", placeholder="subrub", value="{{ data[0][5]}}"></td>
+			</tr>
+				<tr>
+				<td id="tag">Diet Requirement:</td>
+   				<td id="field"> <input type="text" name="diet" id="diet", placeholder="diet", value="{{ data[0][6]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Home telephone:</td>
+   				<td id="field"> <input type="text" name="home" id="home", placeholder="telephone", value="{{ data[0][7]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Mobile Phone:</td>
+   				<td id="field"> <input type="text" name="phone" id="phone", placeholder="phone", value="{{ data[0][8]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Email:</td>
+   				<td id="field"> <input type="text" name="email" id="email", placeholder="email", value="{{ data[0][9]}}"></td>
+			</tr>
+                <tr>
+				<td id="tag">Collection Centre Intend to collect</td>
+   				<td id="field">{{data[0][10]}}
+
+				</td>
+			</tr>
+
+
+				<tr>
+				<td id="tag"><input type="submit" name="submit" id="submit" value="Update my Details"></td>
+   				<td id="field"> </td>
+			</tr>
+
+
+
+			</table>
+			</form>
+
+			<div id="download"><a href="/recipient_main">Back to previous page</a></div>
+			<div id="download"><a href="/logout_recipient">Sign out</a></div>
+
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

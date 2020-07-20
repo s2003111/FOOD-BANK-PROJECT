@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="css/style_exercise1.css">
+	<script>
+		function validateForm() {
+		var name = document.forms["form1"]["name"].value;
+		var email = document.forms["form1"]["email"].value;
+		var gender = document.forms["form1"]["RadioGroup1"].value;
+		var phone= document.forms["form1"]["phone"].value;
+		var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+		
+ 		 if(name==''){
+			alert('Please enter your name.');
+			return false;
+		}else if(gender==''){
+			alert('Please enter your gender.');
+			return false;
+		}else if(email==''){
+			alert('Please enter your email.');
+			return false;
+		}else if(phone==''){
+			alert('Please enter your phone.');
+			return false;
+		}else if (reg.test(email) == false) {
+           		 alert('Invalid Email Address');
+            		return false;
+        	}
+
+		
+
+  		
+	}
+	</script>
+	
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">AV Shop</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="AboutUs.html"><li class="menuitem">About Us</li></a>
+				<a href="News.html"><li class="menuitem">News</li></a>
+				<a href="ProductInformation.html"><li class="menuitem">Product Information</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="Q&A.html"><li class="menuitem">Q&A</li></a>
+				<a href="ContactUs.html"><li class="menuitem">Contact Us</li></a>								
+			</ul>
+			
+		</div>
+
+		<div id="main">
+			<h1>Membership Application Form</h1>
+			<p>Please complete the following application form.</p>
+			<hr>
+			
+			<form id="form1" name="form1" method="get" onSubmit="return validateForm()">
+			</p>
+			<table id="Membership">
+  			<tr>
+    				<td id="tag">Name:</td>
+   				<td id="field"><input type="text" name="name" id="name"></td>
+  			</tr>
+ 			<tr>
+    				<td id="tag">Gender:</td>
+   				<td id="field"><label>
+      					<input type="radio" name="RadioGroup1" value="M" id="RadioGroup1_0">
+   					 Male</label>
+   					 <input type="radio" name="RadioGroup1" value="F" id="RadioGroup1_1">
+   					 <label>Female</label>
+			</td>
+  			</tr>
+			<tr>
+				<td id="tag">Email:</td>
+   				<td id="field"> <input type="text" name="email" id="email"></td>
+			</tr>
+
+			<tr>
+				<td id="tag">Phone:</td>
+   				<td id="field"> <input type="text" name="phone" id="phone"></td>
+			</tr>
+
+			<tr>
+				<td id="tag">Comment</td>
+   				<td id="field"> <textarea name="textarea" id="textarea"></textarea></td>
+			</tr>
+
+			<tr>
+				<td id="tag"><input type="submit" name="submit" id="submit" value="Submit"></td>
+   				<td id="field"> </td>
+			</tr>
+			
+
+   			 
+			</table>
+			</form>
+			
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>

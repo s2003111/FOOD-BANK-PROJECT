@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="description" content="website description">
+	<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+	<meta name="author" content="website content">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='css/style_exercise1.css') }}">
+</head>
+
+<body>
+
+	<div class="wrapper">
+		<div id="banner"><h1 id="companyName">UQ food Bank</h1></div>
+
+		<div id="leftsidebar">
+			<ul id="menulist">
+				<a href="/"><li class="menuitem">About Us</li></a>
+				<a href="/admin"><li class="menuitem">Admin</li></a>
+				<a href="/donor_main"><li class="menuitem">Donor</li></a>
+				<a href="/recipient_main"><li class="menuitem">Recipient</li></a>
+				<a href="/community_main"><li class="menuitem">Community Centre</li></a>
+				<a href="/contactus"><li class="menuitem">Contact Us</li></a>
+			</ul>
+
+		</div>
+
+		<div>
+            <h1>Information for All Donor</h1>
+                          <table id="dataphone">
+                <thead align="center">
+                  <tr>
+                      <th>Id</th>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Email</th>
+                      <th>Address</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                    {% if data|length == 0 %}
+                  <tr>
+                    <td>No Data</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                      <td></td>
+                      <td></td>
+                  </tr>
+                    {% else %}
+                  <tr>
+                      {% for row in data %}
+                      <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                      <td>{{ row[4] }} {{ row[5] }}, {{ row[6] }}, {{ row[7] }} </td>
+                  </tr>
+                      {% endfor %}
+                    {% endif%}
+                </tbody>
+              </table>
+
+
+            <div id="download"><a href="/admin_people">Back to previous page</a></div>
+            <div id="download"><a href="/logout">Sign Out</a></div>
+
+		</div>
+
+		<footer>
+			<div>Copyright &copy; by Cecilia. All rights reserved.</div>
+		</footer>
+
+	</div>
+
+</body>
+</html>
